@@ -4,63 +4,100 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <main class="about-container">
-    <h1 class="page-title">About</h1>
-    
-    <section class="content-section">
-      <h2 class="section-title">My Philosophy</h2>
-      <div class="content-block">
-        <p>
-          Data science is not just about algorithms and models—it's about understanding uncertainty, 
-          making informed decisions, and continuously updating our beliefs as new evidence arrives.
-        </p>
-        <p>
-          I approach every problem with a Bayesian mindset: start with prior knowledge, observe the data, 
-          and update accordingly. This philosophy extends beyond machine learning into how I think about 
-          complex systems, decision-making, and life itself.
-        </p>
-        <p>
-          The goal isn't to eliminate uncertainty, but to become comfortable dancing with it. Every model 
-          is a simplification, every prediction carries uncertainty, and that's not a bug—it's a feature 
-          of reality.
-        </p>
+    <!-- Section 1: Hero (Two-Column Split) -->
+    <section class="hero-section">
+      <div class="hero-grid">
+        <!-- Left Column: Narrative -->
+        <div class="hero-content-column">
+          <h1 class="hero-name">About</h1>
+          <p class="hero-subtitle">
+            Data Scientist @ <a href="https://www.atlassian.com" target="_blank" rel="noopener noreferrer" class="company-link">Atlassian</a> | 
+            Ex-Management Consultant @ <a href="https://www.bcg.com" target="_blank" rel="noopener noreferrer" class="company-link">BCG</a> |
+            Seattle, WA
+          </p>
+          <div class="bio-text">
+            <p>
+              I'm Gaurav. Born in Varanasi, I learned early that existence is cumulative - we build upon the past to navigate the future. 
+              I bring this philosophy to AI: bridging the gap between data and wisdom.
+            </p>
+            <p>
+              Currently, I architect data solutions at <strong>Atlassian</strong>, helping teams turn uncertainty into clarity. 
+              Previously, I solved high-level strategic problems as a Management Consultant at <strong>BCG</strong>.
+            </p>
+            <p>
+              My work sits at the intersection of <strong>Algorithmic Precision</strong> and <strong>Strategic Clarity</strong>. I don't just optimize models; 
+              I architect resilient systems that turn raw data into decisive action. I am a Navigator for the age of intelligence.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Right Column: Image -->
+        <div class="hero-image-column">
+          <div class="image-wrapper">
+            <img src="/about_dp.png" alt="Gaurav" class="profile-image" />
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="content-section">
+    <!-- Section 2: Skills Grid -->
+    <section class="skills-section">
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
-        <div class="skill-category">
-          <h3 class="category-title">Machine Learning</h3>
+        <!-- Card 1: The Engine -->
+        <div class="skill-card">
+          <h3 class="card-title">The Engine</h3>
+          <p class="card-subtitle">Applied AI</p>
           <ul class="skill-list">
-            <li>Deep Learning (TensorFlow, PyTorch)</li>
-            <li>Bayesian Methods</li>
-            <li>Time Series Analysis</li>
-            <li>Reinforcement Learning</li>
-            <li>NLP & Transformers</li>
+            <li>LLMs & RAG Architectures</li>
+            <li>MLOps & Cloud Native</li>
+            <li>Advanced Python & API Design</li>
+            <li>Stochastic Optimization & Simulation</li>
           </ul>
         </div>
         
-        <div class="skill-category">
-          <h3 class="category-title">Data Engineering</h3>
+        <!-- Card 2: The Framework -->
+        <div class="skill-card">
+          <h3 class="card-title">The Framework</h3>
+          <p class="card-subtitle">System Design</p>
           <ul class="skill-list">
-            <li>Python, SQL</li>
-            <li>Apache Kafka, Spark</li>
-            <li>Data Pipelines</li>
-            <li>Cloud Infrastructure (AWS, GCP)</li>
-            <li>MLOps & Model Deployment</li>
+            <li>Agentic Workflows</li>
+            <li>Scalable System Design</li>
+            <li>Bayesian & Causal Inference</li>
+            <li>Model Evaluation & Observability</li>
           </ul>
         </div>
         
-        <div class="skill-category">
-          <h3 class="category-title">Visualization & Tools</h3>
+        <!-- Card 3: The Interface -->
+        <div class="skill-card">
+          <h3 class="card-title">The Interface</h3>
+          <p class="card-subtitle">Strategy</p>
           <ul class="skill-list">
-            <li>Plotly.js, D3.js</li>
-            <li>Statistical Analysis</li>
-            <li>Jupyter, Notebooks</li>
-            <li>Version Control (Git)</li>
-            <li>Agile Methodologies</li>
+            <li>Technical Strategy</li>
+            <li>Product-Data Fit</li>
+            <li>Stakeholder Management</li>
+            <li>Technical Leadership</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- Section 4: The Signal (Connect) -->
+    <section class="connect-section">
+      <p class="connect-label">Open Channels</p>
+      <div class="connect-buttons">
+        <a href="https://www.linkedin.com/in/gauravrasingh" target="_blank" rel="noopener noreferrer" class="connect-button linkedin">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/bayesianmonk" target="_blank" rel="noopener noreferrer" class="connect-button github">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="currentColor"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
       </div>
     </section>
   </main>
@@ -68,78 +105,169 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   .about-container {
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 4rem 2rem;
     min-height: 100vh;
   }
 
-  .page-title {
+  /* Section 1: Hero */
+  .hero-section {
+    margin-bottom: 5rem;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-image-column {
+    position: relative;
+  }
+
+  .image-wrapper {
+    position: relative;
+    padding: 0.5rem;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    box-shadow: 
+      0 0 30px rgba(0, 255, 255, 0.2),
+      inset 0 0 20px rgba(0, 255, 255, 0.05);
+    animation: holographic-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes holographic-glow {
+    0%, 100% {
+      box-shadow: 
+        0 0 30px rgba(0, 255, 255, 0.2),
+        inset 0 0 20px rgba(0, 255, 255, 0.05);
+    }
+    50% {
+      box-shadow: 
+        0 0 40px rgba(0, 255, 255, 0.4),
+        inset 0 0 25px rgba(0, 255, 255, 0.1);
+    }
+  }
+
+  .profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    display: block;
+  }
+
+  .hero-content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-name {
     font-family: 'Inter', sans-serif;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 700;
     color: #ffffff;
-    margin: 0 0 3rem 0;
-    letter-spacing: -0.02em;
+    margin: 0;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 
-  .content-section {
-    margin-bottom: 4rem;
-  }
-
-  .section-title {
+  .hero-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin: 0 0 1.5rem 0;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.6;
   }
 
-  .content-block {
+  .company-link {
+    color: rgba(0, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  .company-link:hover {
+    color: #00ffff;
+    border-bottom-color: rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+
+  .bio-text {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
   }
 
-  .content-block p {
+  .bio-text p {
     margin: 0 0 1.5rem 0;
   }
 
-  .content-block p:last-child {
+  .bio-text p:last-child {
     margin-bottom: 0;
+  }
+
+  .bio-text strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  /* Section 2: Skills Grid */
+  .skills-section {
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 
-  .skill-category {
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.02);
+  .skill-card {
+    padding: 2rem;
+    background: rgba(39, 39, 42, 0.5);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     transition: all 0.3s ease;
   }
 
-  .skill-category:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(0, 255, 255, 0.2);
-    transform: translateY(-2px);
+  .skill-card:hover {
+    background: rgba(39, 39, 42, 0.7);
+    border-color: rgba(0, 255, 255, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
-  .category-title {
+  .card-title {
     font-family: 'Inter', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #ffffff;
-    margin: 0 0 1rem 0;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 0 0.5rem 0;
+  }
+
+  .card-subtitle {
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 0.875rem;
+    color: rgba(0, 255, 255, 0.7);
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
 
   .skill-list {
@@ -152,10 +280,10 @@ import Layout from '../layouts/Layout.astro';
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.7);
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
-    padding-left: 1.25rem;
+    padding-left: 1.5rem;
   }
 
   .skill-list li:last-child {
@@ -170,19 +298,90 @@ import Layout from '../layouts/Layout.astro';
     font-family: ui-monospace, monospace;
   }
 
+  /* Section 4: Connect */
+  .connect-section {
+    text-align: center;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .connect-label {
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .connect-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .connect-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .connect-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.3);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 255, 255, 0.2);
+  }
+
+  .connect-button svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-name {
+      font-size: 3rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 768px) {
     .about-container {
       padding: 2rem 1rem;
     }
 
-    .page-title {
-      font-size: 2rem;
+    .hero-name {
+      font-size: 2.5rem;
     }
 
-    .skills-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    .connect-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .connect-button {
+      justify-content: center;
     }
   }
 </style>
-

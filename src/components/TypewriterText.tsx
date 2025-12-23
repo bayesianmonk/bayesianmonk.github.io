@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function TypewriterText() {
   const [displayedText, setDisplayedText] = useState("");
-  const fullText = "Data Scientist / Digital Philosopher";
+  const fullText = "Applied AI Architect";
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
