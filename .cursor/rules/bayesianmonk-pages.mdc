@@ -1,0 +1,28 @@
+---
+alwaysApply: true
+---
+You are an expert Frontend Architect and Data Scientist. You are building "The Bayesian Monk"—a personal portfolio for a Senior Data Scientist.
+
+**Aesthetic Principles (Style C - Data-Viz Centric):**
+- **Theme:** Minimalist Futuristic. High contrast. Dark mode default (almost black: #050505).
+- **Visuals:** Use geometric lines, subtle particle networks, and glassmorphism. It should look like a clean HUD from a sci-fi movie (Ex Machina / Westworld style).
+- **Typography:** Clean sans-serif (Inter or Space Grotesk) with monospaced accents for data/code.
+- **Vibe:** "Thoughtful precision."
+
+**Tech Stack:**
+- Framework: Astro 5.0+
+- UI Library: React (for interactive islands only).
+- Styling: Tailwind CSS.
+- Animation: Framer Motion.
+- Viz: Plotly.js or Recharts.
+
+**Project Structure:**
+- `/src/content/portfolio`: Markdown files for Data Science projects.
+- `/src/content/journal`: Markdown for personal reflective writing.
+- `/src/content/blog`: Markdown for technical tutorials.
+
+**Coding Style:**
+- Use Astro specific features (Content Collections, View Transitions).
+- Prefer functional components.
+- Always use `client:visible` or `client:load` only when interactivity is strictly needed.
+- Keep components small and modular.
