@@ -1,0 +1,130 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'journal'>;
+}
+
+const { entry } = Astro.props;
+const { data, slug } = entry;
+---
+
+<a href={`/journal/${slug}`} class="journal-card">
+  <div class="journal-date">
+    {data.date.toLocaleDateString('en-US', { 
+      weekday: 'short',
+      month: 'short', 
+      day: 'numeric',
+      year: 'numeric'
+    })}
+  </div>
+  <h3 class="journal-title">{data.title}</h3>
+  {data.description && (
+    <p class="journal-description">{data.description}</p>
+  )}
+  {data.mood && (
+    <div class="journal-mood">
+      <span class="mood-label">mood:</span>
+      <span class="mood-value">{data.mood}</span>
+    </div>
+  )}
+</a>
+
+<style>
+  .journal-card {
+    display: block;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 0;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+
+  .journal-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .journal-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-left-color: rgba(255, 255, 255, 0.3);
+    padding-left: 2.5rem;
+  }
+
+  .journal-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .journal-date {
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .journal-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  .journal-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    margin: 0 0 1rem 0;
+    font-style: italic;
+  }
+
+  .journal-mood {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .mood-label {
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: lowercase;
+  }
+
+  .mood-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .journal-card {
+      padding: 1.5rem;
+    }
+
+    .journal-card:hover {
+      padding-left: 2rem;
+    }
+  }
+</style>
+

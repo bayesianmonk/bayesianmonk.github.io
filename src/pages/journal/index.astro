@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import JournalCard from '../../components/JournalCard.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const entries = await getCollection('journal');
+// Sort by date, newest first
+const sortedEntries = entries.sort((a, b) => 
+  b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout>
+  <main class="journal-container">
+    <h1 class="page-title">Journal</h1>
+    
+    <div class="journal-list">
+      {sortedEntries.map((entry) => (
+        <JournalCard entry={entry} />
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .journal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+  }
+
+  .page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 3rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .journal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .journal-container {
+      padding: 2rem 1rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+

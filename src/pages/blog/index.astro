@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import BlogCard from '../../components/BlogCard.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const entries = await getCollection('blog');
+// Sort by date, newest first
+const sortedEntries = entries.sort((a, b) => 
+  b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout>
+  <main class="blog-container">
+    <h1 class="page-title">Blog</h1>
+    
+    <div class="blog-grid">
+      {sortedEntries.map((entry) => (
+        <BlogCard entry={entry} />
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+  }
+
+  .page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 3rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-container {
+      padding: 2rem 1rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <main class="about-container">
+    <h1 class="page-title">About</h1>
+    
+    <section class="content-section">
+      <h2 class="section-title">My Philosophy</h2>
+      <div class="content-block">
+        <p>
+          Data science is not just about algorithms and models—it's about understanding uncertainty, 
+          making informed decisions, and continuously updating our beliefs as new evidence arrives.
+        </p>
+        <p>
+          I approach every problem with a Bayesian mindset: start with prior knowledge, observe the data, 
+          and update accordingly. This philosophy extends beyond machine learning into how I think about 
+          complex systems, decision-making, and life itself.
+        </p>
+        <p>
+          The goal isn't to eliminate uncertainty, but to become comfortable dancing with it. Every model 
+          is a simplification, every prediction carries uncertainty, and that's not a bug—it's a feature 
+          of reality.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="category-title">Machine Learning</h3>
+          <ul class="skill-list">
+            <li>Deep Learning (TensorFlow, PyTorch)</li>
+            <li>Bayesian Methods</li>
+            <li>Time Series Analysis</li>
+            <li>Reinforcement Learning</li>
+            <li>NLP & Transformers</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3 class="category-title">Data Engineering</h3>
+          <ul class="skill-list">
+            <li>Python, SQL</li>
+            <li>Apache Kafka, Spark</li>
+            <li>Data Pipelines</li>
+            <li>Cloud Infrastructure (AWS, GCP)</li>
+            <li>MLOps & Model Deployment</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3 class="category-title">Visualization & Tools</h3>
+          <ul class="skill-list">
+            <li>Plotly.js, D3.js</li>
+            <li>Statistical Analysis</li>
+            <li>Jupyter, Notebooks</li>
+            <li>Version Control (Git)</li>
+            <li>Agile Methodologies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+  }
+
+  .page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 3rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .content-section {
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .content-block {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .content-block p {
+    margin: 0 0 1.5rem 0;
+  }
+
+  .content-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .skill-category {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .skill-category:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .category-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skill-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .skill-list li:last-child {
+    border-bottom: none;
+  }
+
+  .skill-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: rgba(0, 255, 255, 0.6);
+    font-family: ui-monospace, monospace;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 2rem 1rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
+

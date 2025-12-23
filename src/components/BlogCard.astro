@@ -1,0 +1,134 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+const { data, slug } = entry;
+---
+
+<a href={`/blog/${slug}`} class="blog-card">
+  <div class="blog-header">
+    <h3 class="blog-title">{data.title}</h3>
+    <time class="blog-date" datetime={data.date.toISOString()}>
+      {data.date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      })}
+    </time>
+  </div>
+  
+  <p class="blog-description">{data.description}</p>
+  
+  {data.tags && data.tags.length > 0 && (
+    <div class="blog-tags">
+      {data.tags.map((tag) => (
+        <span class="blog-tag">{tag}</span>
+      ))}
+    </div>
+  )}
+  
+  <div class="blog-author">
+    <span class="author-label">by</span>
+    <span class="author-name">{data.author}</span>
+  </div>
+</a>
+
+<style>
+  .blog-card {
+    display: block;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .blog-date {
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+  }
+
+  .blog-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+  }
+
+  .blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 0.25rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .blog-author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .author-label {
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+    text-transform: lowercase;
+  }
+
+  .author-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .blog-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>
+

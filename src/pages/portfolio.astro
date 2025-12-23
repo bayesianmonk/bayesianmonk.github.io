@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import InteractiveChart from '../components/InteractiveChart';
+import Layout from '../layouts/Layout.astro';
+
+const projects = await getCollection('portfolio');
+console.log('Portfolio projects loaded:', projects);
+---
+
+<Layout>
+  <main class="portfolio-container">
+    <h1 class="page-title">Portfolio</h1>
+    
+    <section class="chart-section">
+      <InteractiveChart client:only="react" dataModel={{ name: 'Loss Gradient' }} />
+    </section>
+
+    <section class="projects-section">
+      <h2 class="section-title">Projects</h2>
+      <div class="cards-grid">
+        {projects.map((entry) => (
+          <PortfolioCard entry={entry} />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .portfolio-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+  }
+
+  .page-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 3rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  .chart-section {
+    margin-bottom: 4rem;
+  }
+
+  .projects-section {
+    margin-top: 4rem;
+  }
+
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-container {
+      padding: 2rem 1rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

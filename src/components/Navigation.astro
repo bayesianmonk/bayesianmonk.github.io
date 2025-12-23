@@ -1,0 +1,107 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/journal", label: "Journal" },
+  { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
+];
+---
+
+<nav class="nav-container">
+  <div class="nav-bar">
+    {navLinks.map((link) => (
+      <a href={link.href} class="nav-link">
+        {link.label}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<style>
+  .nav-container {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-link:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.4);
+    box-shadow: 
+      0 0 15px rgba(0, 255, 255, 0.3),
+      inset 0 0 10px rgba(0, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .nav-link:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      bottom: 1rem;
+    }
+
+    .nav-bar {
+      padding: 0.625rem 1rem;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.75rem;
+      padding: 0.5rem 0.75rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .nav-bar {
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: calc(100vw - 2rem);
+    }
+
+    .nav-link {
+      font-size: 0.7rem;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+</style>
+

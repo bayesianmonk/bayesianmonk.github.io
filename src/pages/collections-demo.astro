@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import JournalCard from '../components/JournalCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import Layout from '../layouts/Layout.astro';
+
+const portfolioEntries = await getCollection('portfolio');
+const journalEntries = await getCollection('journal');
+const blogEntries = await getCollection('blog');
+---
+
+<Layout>
+  <main class="demo-container">
+    <section class="demo-section">
+      <h1 class="section-title">Portfolio</h1>
+      <div class="cards-grid">
+        {portfolioEntries.map((entry) => (
+          <PortfolioCard entry={entry} />
+        ))}
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h1 class="section-title">Journal</h1>
+      <div class="cards-list">
+        {journalEntries.map((entry) => (
+          <JournalCard entry={entry} />
+        ))}
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h1 class="section-title">Blog</h1>
+      <div class="cards-grid">
+        {blogEntries.map((entry) => (
+          <BlogCard entry={entry} />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .demo-section {
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+  }
+
+  @media (max-width: 768px) {
+    .demo-container {
+      padding: 2rem 1rem;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
