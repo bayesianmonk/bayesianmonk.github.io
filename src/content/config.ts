@@ -31,6 +31,7 @@ const blog = defineCollection({
     date: z.date(),
     author: z.string().default('The Bayesian Monk'),
     heroImage: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 
